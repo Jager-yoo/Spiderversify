@@ -3,6 +3,8 @@
 Inspired by the distinctive visual style of the animation "Spider-Man: Spider-Verse series" by Sony Pictures,
 <br> `Spiderversify` brings a Spider-Verse like glitching effect to your SwiftUI views.
 
+### ✨ More charming glitching effects are planned for release. Stay tuned!
+
 <br>
 
 <p align="leading">
