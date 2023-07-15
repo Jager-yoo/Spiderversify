@@ -12,12 +12,13 @@ public struct Spiderversify: ViewModifier {
   private let fonts: [Font.Design] = [.default, .serif, .monospaced, .rounded]
   private let weights: [Font.Weight] = [.black, .bold, .heavy, .light, .medium, .regular, .semibold, .thin, .ultraLight]
   private let maxGlitchOffset: CGFloat = 6
-  private let glitchTimer = Timer.publish(every: 0.12, on: .main, in: .common).autoconnect()
-  private let endTimer: Publishers.Autoconnect<Timer.TimerPublisher>
+  private let glitchIntervalTimer: Publishers.Autoconnect<Timer.TimerPublisher>
+  private let durationTimer: Publishers.Autoconnect<Timer.TimerPublisher>
 
-  init(_ on: Binding<Bool>, interval: TimeInterval) {
+  init(_ on: Binding<Bool>, duration: TimeInterval, glitchInterval: TimeInterval) {
     self._on = on
-    endTimer = Timer.publish(every: interval, on: .main, in: .common).autoconnect()
+    glitchIntervalTimer = Timer.publish(every: glitchInterval, on: .main, in: .common).autoconnect()
+    durationTimer = Timer.publish(every: duration, on: .main, in: .common).autoconnect()
   }
 
   public func body(content: Content) -> some View {
@@ -37,10 +38,10 @@ public struct Spiderversify: ViewModifier {
           }
         }
       )
-      .onReceive(glitchTimer) { _ in
+      .onReceive(glitchIntervalTimer) { _ in
         self.offset = CGSize(width: Double.random(in: -maxGlitchOffset...maxGlitchOffset), height: Double.random(in: -maxGlitchOffset...maxGlitchOffset))
       }
-      .onReceive(endTimer) { _ in
+      .onReceive(durationTimer) { _ in
         on = false
       }
     } else {
@@ -51,7 +52,7 @@ public struct Spiderversify: ViewModifier {
 
 extension View {
 
-  public func spiderversify(_ on: Binding<Bool>, interval: TimeInterval) -> some View {
-    self.modifier(Spiderversify(on, interval: interval))
+  public func spiderversify(_ on: Binding<Bool>, duration: TimeInterval, glitchInterval: TimeInterval = 0.12) -> some View {
+    self.modifier(Spiderversify(on, duration: duration, glitchInterval: glitchInterval))
   }
 }
