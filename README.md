@@ -6,8 +6,9 @@ Inspired by the distinctive visual style of the animation "Spider-Man: Spider-Ve
 <br>
 
 <p align="leading">
-  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/2999354c-a30f-42ef-979f-83977819dbed" width="250" />
-  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/f0351960-4852-46e2-b3a1-862785d6e6fb" width="250"/>
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/2999354c-a30f-42ef-979f-83977819dbed" width="250"/>
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/45bb7348-a2f7-4e3e-9977-bf418140ad0d" width="250"/>
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/e006dc74-96d0-4a44-9f38-10d9b4887141" width="250"/>
 </p>
 
 The Spiderversify library requires `iOS 15.0`, macOS 12.0, watchOS 8.0, or tvOS 15.0 and higher.
