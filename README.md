@@ -1,3 +1,67 @@
-# Spiderversify
+# 🕸️ Spiderversify your SwiftUI views!
 
-A description of this package.
+Inspired by the distinctive visual style of the animation "Spider-Man: Spider-Verse series" by Sony Pictures,
+<br> `Spiderversify` brings a Spider-Verse like glitching effect to your SwiftUI views.
+
+<br>
+
+<p align="leading">
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/62ccb3ec-44d1-4b44-8de4-7ed3a4843186" width="250" />
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/252062a6-1462-4cfa-84be-4663f2bc2531" width="250"/>
+</p>
+
+The Spiderversify library requires `iOS 15.0`, macOS 12.0, watchOS 8.0, or tvOS 15.0 and higher.
+<br> Enjoy bringing a bit of the Spider-Verse into your apps!
+
+<br>
+
+## - How to use Spiderversify
+
+To apply `Spiderversify` to your SwiftUI views, you simply add the `.spiderversify` view modifier.
+<br> Here is an example:
+
+<br>
+
+```swift
+import SwiftUI
+import Spiderversify
+
+struct ContentView: View {
+
+  @State private var glitching = false
+
+  var body: some View {
+    Text("Spiderversify")
+      .spiderversify($glitching, duration: 2, glitchInterval: 0.12) // ⬅️ 🕸️
+      .font(.title)
+      .onTapGesture {
+        glitching = true
+      }
+  }
+}
+```
+
+<br>
+
+## - Parameter Details
+
+- `on`: A Binding<Bool> that controls whether the glitch effect is active.
+- `duration`: The duration of the glitch effect animation.
+- `glitchInterval`: The interval at which the glitch effect changes.
+
+Please note that both duration and glitchInterval are specified in `seconds`.
+
+<br>
+
+## - Installation
+
+Spiderversify supports [Swift Package Manager](https://www.swift.org/package-manager/).
+
+Navigate to `File` menu at the top of Xcode -> Select `Add Packages...`.
+Enter "https://github.com/Jager-yoo/Spiderversify.git" in the Package URL field to install it.
+
+<br>
+
+## - License
+
+This library is released under the MIT license. See [LICENSE](https://github.com/Jager-yoo/Spiderversify/blob/main/LICENSE) for details.
