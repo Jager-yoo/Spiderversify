@@ -60,8 +60,8 @@ Please note that both duration and glitchInterval are specified in `seconds`.
 
 Spiderversify supports [Swift Package Manager](https://www.swift.org/package-manager/).
 
-Navigate to `File` menu at the top of Xcode -> Select `Add Packages...`.
-Enter "https://github.com/Jager-yoo/Spiderversify.git" in the Package URL field to install it.
+- Navigate to `File` menu at the top of Xcode -> Select `Add Packages...`.
+- Enter `https://github.com/Jager-yoo/Spiderversify.git` in the Package URL field to install it.
 
 <br>
 
