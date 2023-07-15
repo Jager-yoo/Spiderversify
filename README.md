@@ -6,8 +6,8 @@ Inspired by the distinctive visual style of the animation "Spider-Man: Spider-Ve
 <br>
 
 <p align="leading">
-  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/62ccb3ec-44d1-4b44-8de4-7ed3a4843186" width="250" />
-  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/252062a6-1462-4cfa-84be-4663f2bc2531" width="250"/>
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/2999354c-a30f-42ef-979f-83977819dbed" width="250" />
+  <img src="https://github.com/Jager-yoo/Spiderversify/assets/71127966/f0351960-4852-46e2-b3a1-862785d6e6fb" width="250"/>
 </p>
 
 The Spiderversify library requires `iOS 15.0`, macOS 12.0, watchOS 8.0, or tvOS 15.0 and higher.
@@ -47,7 +47,7 @@ struct ContentView: View {
 
 - `on`: A Binding<Bool> that controls whether the glitch effect is active.
 - `duration`: The duration of the glitch effect animation.
-- `glitchInterval`: The interval at which the glitch effect changes.
+- `glitchInterval`: The interval at which the glitch effect changes. (default value: 0.12 sec)
 
 Please note that both duration and glitchInterval are specified in `seconds`.
 
