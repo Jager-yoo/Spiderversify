@@ -15,7 +15,7 @@ struct Stripes: View {
   var body: some View {
     Rectangle()
       .fill(color)
-      .scaleEffect(10)
+      .scaleEffect(8)
       .rotationEffect(Angle(degrees: rotationDegree))
       .mask {
         HStack(spacing: 32) {

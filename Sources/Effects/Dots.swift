@@ -10,7 +10,7 @@ struct Dots: View {
   var body: some View {
     Ellipse()
       .fill(color)
-      .scaleEffect(Double.random(in: 4...8))
+      .scaleEffect(Double.random(in: 4...6))
       .rotationEffect(Angle(degrees: rotationDegree))
       .hueRotation(Angle(degrees: hueDegree))
       .mask {

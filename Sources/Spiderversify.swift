@@ -7,6 +7,7 @@ public struct Spiderversify: ViewModifier {
   @Binding var on: Bool
 
   @State private var offset = CGSize(width: 0, height: 0)
+  @State private var effectType: EffectType = .glitch
 
   private let colors: [Color] = [.red, .green, .blue, .pink, .yellow, .cyan, .indigo, .mint, .orange, .purple]
   private let fonts: [Font.Design] = [.default, .serif, .monospaced, .rounded]
@@ -21,32 +22,47 @@ public struct Spiderversify: ViewModifier {
     durationTimer = Timer.publish(every: duration, on: .main, in: .common).autoconnect()
   }
 
+  enum EffectType: CaseIterable {
+    case glitch
+    case portal
+  }
+
   public func body(content: Content) -> some View {
-    if on {
-      ZStack {
-        content
-          .font(.system(size: Double.random(in: 20...36), weight: weights.randomElement()!, design: fonts.randomElement()!))
-          .foregroundColor(colors.randomElement()!)
-          .offset(self.offset)
-          .rotationEffect(.degrees(Double.random(in: -5...5)))
-      }
-      .background(
-        Group {
-          if Bool.random() {
-            Dots()
-          } else {
-            Stripes()
-          }
+    Group {
+      if on {
+        ZStack {
+          content
+            .font(.system(size: Double.random(in: 20...36), weight: weights.randomElement()!, design: fonts.randomElement()!))
+            .foregroundColor(colors.randomElement()!)
+            .offset(self.offset)
+            .rotationEffect(.degrees(Double.random(in: -5...5)))
         }
-      )
-      .onReceive(glitchIntervalTimer) { _ in
-        self.offset = CGSize(width: Double.random(in: -maxGlitchOffset...maxGlitchOffset), height: Double.random(in: -maxGlitchOffset...maxGlitchOffset))
+        .background(
+          backgroundEffect
+        )
+        .onReceive(glitchIntervalTimer) { _ in
+          self.offset = CGSize(width: Double.random(in: -maxGlitchOffset...maxGlitchOffset), height: Double.random(in: -maxGlitchOffset...maxGlitchOffset))
+        }
+        .onReceive(durationTimer) { _ in
+          on = false
+        }
+      } else {
+        content
       }
-      .onReceive(durationTimer) { _ in
-        on = false
+    }
+    .onChange(of: on) { newValue in
+      if newValue {
+        effectType = Bool.random() ? .glitch : .portal
       }
-    } else {
-      content
+    }
+  }
+
+  private var backgroundEffect: AnyView {
+    switch effectType {
+    case .glitch:
+      return [AnyView(Dots()), AnyView(Stripes())].randomElement()!
+    case .portal:
+      return AnyView(Portals())
     }
   }
 }
