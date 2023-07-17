@@ -5,7 +5,7 @@ struct Dots: View {
   private let color: Color = [.orange, .blue, .red].randomElement()!
   private let hueDegree = Double.random(in: 0...360)
   private let rotationDegree = Double.random(in: 0...360)
-  private let circleSize = Double.random(in: 6...24)
+  private let circleSize = Double.random(in: 6...20)
 
   var body: some View {
     Ellipse()
@@ -21,7 +21,7 @@ struct Dots: View {
   private var dots: some View {
     VStack(spacing: Double.random(in: 2...8)) {
       ForEach(0..<20, id: \.self) { _ in
-        HStack(spacing: 8) {
+        HStack(spacing: 10) {
           ForEach(0..<20, id: \.self) { _ in
             Circle()
               .frame(width: circleSize, height: circleSize)
@@ -38,7 +38,7 @@ struct Dots_Previews: PreviewProvider {
 
   static var previews: some View {
     Text("Spiderversify")
-      .font(.largeTitle)
+      .font(.title)
       .background {
         Dots()
       }

@@ -9,7 +9,7 @@ struct Stripes: View {
     let range = ranges.randomElement()!
     return Double.random(in: range)
   }()
-  private let lineWidth = Double.random(in: 6...24)
+  private let lineWidth = Double.random(in: 6...16)
   private let lineHeight = Double.random(in: 250...500)
 
   var body: some View {
@@ -18,11 +18,9 @@ struct Stripes: View {
       .scaleEffect(10)
       .rotationEffect(Angle(degrees: rotationDegree))
       .mask {
-        HStack(spacing: 30) {
+        HStack(spacing: 32) {
           ForEach(1..<20, id: \.self) { _ in
             Rectangle()
-              .fill(Color.yellow)
-              .colorInvert()
               .opacity(0.6)
               .frame(width: lineWidth, height: lineHeight)
               .rotationEffect(Angle(degrees: rotationDegree))
@@ -37,7 +35,7 @@ struct Stripes_Previews: PreviewProvider {
 
   static var previews: some View {
     Text("Spiderversify")
-      .font(.largeTitle)
+      .font(.title)
       .background {
         Stripes()
       }

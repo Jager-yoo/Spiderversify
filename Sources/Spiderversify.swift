@@ -28,6 +28,7 @@ public struct Spiderversify: ViewModifier {
           .font(.system(size: Double.random(in: 20...36), weight: weights.randomElement()!, design: fonts.randomElement()!))
           .foregroundColor(colors.randomElement()!)
           .offset(self.offset)
+          .rotationEffect(.degrees(Double.random(in: -5...5)))
       }
       .background(
         Group {
